@@ -52,6 +52,15 @@ public class Application {
 }
 
 @RestController
+@RequestMapping("/hello")
+class HelloController {
+    @RequestMapping("")
+    Name hello() {
+        return new Name("Chenchi", "Liang");
+    }
+}
+
+@RestController
 class BookmarkRestController {
 
     private final BookmarkRepository bookmarkRepository;
@@ -99,6 +108,7 @@ class BookmarkRestController {
                 () -> new UserNotFoundException(userId));
     }
 }
+
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
 class UserNotFoundException extends RuntimeException {
