@@ -1,32 +1,19 @@
 package hello;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.*;
 
 import org.apache.log4j.Logger;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-@Configuration
-@ComponentScan
 public class Application {
 
-    @Bean
-    MessageService mockMessageService() {
-        return new MessageService() {
-            public String getMessage() {
-                return "Hello World!";
-            }
-        };
-    }
-
     public static void main(String[] args) {
-        ApplicationContext context =
-                new AnnotationConfigApplicationContext(Application.class);
-        MessagePrinter printer = context.getBean(MessagePrinter.class);
-        printer.printMessage();
+        ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"service.xml"});
+        MessageService printer = context.getBean("printer", MessageService.class);
 
         Logger logger = Logger.getLogger(Application.class);
 
-        logger.error("not ok");
+        logger.info(printer.getMessage());
 
         logger.info("Done");
     }
