@@ -3,13 +3,13 @@ package hello;
 /**
  * Created by momo9 on 2/6/2015.
  */
-public class WithFac implements WithFacService {
+public class WithFac implements MessageService {
 
     private String message;
 
     private WithFac() {}
 
-    public static WithFacService create() {
+    public static MessageService create() {
         WithFac obj = new WithFac();
         obj.message = "Created by factory.";
         return obj;

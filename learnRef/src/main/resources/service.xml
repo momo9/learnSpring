@@ -15,4 +15,9 @@
           factory-bean="printerFac"
           factory-method="createError"/>
 
+    <bean id="processor" class="hello.Processor">
+        <constructor-arg name="service" ref="helloPrinter"/>
+        <constructor-arg name="author" value="Chenchi Liang"/>
+    </bean>
+
 </beans>
