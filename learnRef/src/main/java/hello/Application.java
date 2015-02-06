@@ -9,12 +9,14 @@ public class Application {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"service.xml"});
-        MessageService printer = context.getBean("printer", MessageService.class);
+        MessageService helloPrinter = context.getBean("helloPrinter", MessageService.class);
+        MessageService errorPrinter = context.getBean("errorPrinter", MessageService.class);
         WithFacService obj = context.getBean("withFactory", WithFacService.class);
 
         Logger logger = Logger.getLogger(Application.class);
 
-        logger.info(printer.getMessage());
+        logger.info(helloPrinter.getMessage());
+        logger.info(errorPrinter.getMessage());
         logger.info(obj.getMessage());
 
         logger.info("Done");

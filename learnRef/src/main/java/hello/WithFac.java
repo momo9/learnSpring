@@ -7,7 +7,9 @@ public class WithFac implements WithFacService {
 
     private String message;
 
-    public static WithFac create() {
+    private WithFac() {}
+
+    public static WithFacService create() {
         WithFac obj = new WithFac();
         obj.message = "Created by factory.";
         return obj;
