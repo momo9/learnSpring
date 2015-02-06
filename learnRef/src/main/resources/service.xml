@@ -4,6 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="printer" class="hello.ErrorPrinter"/>
+    <bean id="printer" class="hello.MessagePrinter"/>
+    <bean id="withFactory"
+          class="hello.WithFac"
+          factory-method="create"/>
 
 </beans>
