@@ -18,9 +18,8 @@ public class MessagePrinter implements MessageService {
         return printer;
     }
 
-    @Override
     public String getMessage() {
         return message;
     }
-
+    
 }
