@@ -10,13 +10,10 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<context:annotation-config />
+	<context:component-scan base-package="hello"/>
 
 	<bean id="message" class="hello.Message">
 		<constructor-arg value="nihao" />
-	</bean>
-
-	<bean id="randomMessage" class="hello.RandomMessage">
-		<property name="message" ref="message" />
 	</bean>
 
 </beans>
