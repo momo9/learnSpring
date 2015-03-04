@@ -2,15 +2,15 @@ package persistence;
 
 public class Article {
 
-    private int id;
+    private Integer id;
     private String title;
     private String author;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

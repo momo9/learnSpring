@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 </head>
 <body>
-    id: $id
-    <br> name: $name
+<h2>NOT FOUND</h2>
 </body>
 </html>

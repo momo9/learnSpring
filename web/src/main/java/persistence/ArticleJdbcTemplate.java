@@ -17,7 +17,7 @@ public class ArticleJdbcTemplate implements ArticleDao {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    public Article queryArticleById(int id) throws EmptyResultDataAccessException {
+    public Article queryArticleById(Integer id) {
 
         String sql = "select ar.id, ar.title, au.name "
                 + "from articles as ar, authors as au "
