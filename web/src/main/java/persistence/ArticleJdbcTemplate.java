@@ -1,5 +1,7 @@
 package persistence;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -8,8 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ArticleJdbcTemplate implements ArticleDao {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
+    
+    @Autowired
+    public void setDataSource(DataSource dataSource) {
+        jdbcTemplate = new JdbcTemplate(dataSource);
+    }
 
     public Article queryArticleById(int id) throws EmptyResultDataAccessException {
 
