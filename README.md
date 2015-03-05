@@ -19,4 +19,4 @@ learnSpring
 - DAO
  - JDBC
  - Hibernate
- - MyBatis
+ - MyBatis: <http://mybatis.github.io/spring/>
