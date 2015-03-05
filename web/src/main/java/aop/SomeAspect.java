@@ -18,4 +18,5 @@ public class SomeAspect {
         Logger logger = Logger.getLogger(this.getClass());
         logger.info("setter called");
     }
+    
 }

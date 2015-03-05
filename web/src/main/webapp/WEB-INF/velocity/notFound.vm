@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
 <head>
-<title>$message</title>
+<title>Error</title>
 <meta charset="utf-8">
 </head>
 <body>
-<h2>NOT FOUND</h2>
+    <h2>NOT FOUND</h2>
 </body>
 </html>

@@ -1,11 +1,10 @@
 package hello;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.MediaType;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,9 +16,27 @@ import persistence.Article;
 import persistence.ArticleDao;
 import persistence.Author;
 import persistence.AuthorDao;
+import persistence.TagDao;
 
 @Controller
 public class Index {
+
+    @Autowired
+    private TagDao tagDao;
+
+    @RequestMapping("/tag/{name}")
+    public String tag(@PathVariable String name, Model model) {
+        List<Article> articles;
+
+        try {
+            articles = tagDao.getArticlesByTagName(name);
+        } catch (EmptyResultDataAccessException e) {
+            return "/notFound";
+        }
+        model.addAttribute("articles", articles);
+        model.addAttribute("tag", name);
+        return "/tag";
+    }
 
     @Autowired
     private AuthorDao authorDao;
@@ -33,7 +50,7 @@ public class Index {
         author.setId(id);
         return author;
     }
-    
+
     @RequestMapping("/show/{name}")
     public String show(@PathVariable String name, Model model) {
         Author author;

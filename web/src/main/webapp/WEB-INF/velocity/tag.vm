@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<title>$tag</title>
+<meta charset="utf-8">
+</head>
+<body>
+    <table>
+        <tr>
+        <th>TITLE</th>
+        <th>AUTHOR</th>
+        </tr> #foreach($a in $articles)
+        <tr>
+            <td>$a.title</td>
+            <td>$a.author</td>
+        </tr>
+        #end
+    </table>
+</body>
+</html>

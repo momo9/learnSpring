@@ -1,7 +1,13 @@
 package persistence;
 
-public class Article {
+import java.io.Serializable;
 
+public class Article implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -9038421340883053273L;
     private Integer id;
     private String title;
     private String author;
